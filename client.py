@@ -1353,7 +1353,7 @@ async def main() -> None:
                 upd_str += f"\n{should}"
             elif updates[0] and updates[1]:
                 if updates[1] == 1:
-                    upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which a one is a development package.{colors.endc}"
+                    upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which one is a development package.{colors.endc}"
                 else:
                     upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which {updates[1]} are development packages.{colors.endc}"
                 if flat_str:
