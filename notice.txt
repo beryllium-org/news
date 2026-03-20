@@ -1,9 +1,7 @@
-The BredOS signing keys have been updated.
+!!IMPORTANT!! BredOS is RETIRING!
+We will migrate to Beryllium OS!
 
-You should update it manually before doing other
-updates by running `sudo pacman -Sy bredos-keyring`
+https://discord.gg/4VrbXqnkwn
 
-Python has also been updated to 3.14, you're advised
-to reinstall all AUR python-* packages.
-
+Ideally, you'll be migrated automatically.
 - Rudimentary Pancake Assembler
