@@ -1,10 +1,10 @@
 [Unit]
-Description=BredOS News Update Service
+Description=Beryllium OS News Update Service
 After=network.target
 Wants=network.target
 
 [Service]
-ExecStart=/usr/bin/bredos-news-server
+ExecStart=/usr/bin/beryllium-news-server
 Restart=always
 RestartSec=5
 Nice=19

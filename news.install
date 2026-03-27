@@ -1,13 +1,13 @@
 post_install() {
-    systemctl enable --now bredos-news-update
+    systemctl enable --now beryllium-news-update
 }
 
 post_upgrade() {
-    systemctl enable --now bredos-news-update
-    systemctl restart bredos-news-update
+    systemctl enable --now beryllium-news-update
+    systemctl restart beryllium-news-update
 }
 
 post_remove() {
-    systemctl disable --now bredos-news-update
+    systemctl disable --now beryllium-news-update
 }
 

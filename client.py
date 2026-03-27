@@ -212,9 +212,9 @@ def terminal_size() -> tuple:
 CACHE_FILE = "/tmp/news_cache.json"
 
 DEFAULT_CONF = """\"\"\"
-BredOS-News Configuration
+Beryllium-News Configuration
 
-Refer to `https://wiki.bredos.org/customizations/news`,
+Refer to `https://wiki.beryllium.gr/customizations/news`,
 for detailed instructions on how to configure.
 \"\"\"
 
@@ -251,7 +251,7 @@ def shortcuts_help() -> None:
     stdin.read(1)
     clear()
 
-shortcuts["1"] = "bredos-config"
+shortcuts["1"] = "beryllium-config"
 shortcuts["0"] = "sudo sys-report"
 shortcuts["b"] = shortcuts["B"] = "[ '$USER' = 'bred' ] && Bakery --tui;"
 shortcuts["?"] = shortcuts_help
@@ -1188,13 +1188,13 @@ async def main() -> None:
     msg = []
 
     msg.append(
-        f"{alt}{colors.bold}Welcome to BredOS{colors.endc} {colors.bland_t}({system_info['os_info']}){colors.endc}\n"
+        f"{alt}{colors.bold}Welcome to Beryllium OS{colors.endc} {colors.bland_t}({system_info['os_info']}){colors.endc}\n"
     )
     msg.append(
-        f"{alt}{colors.bold}\n*{colors.endc} Documentation:  https://wiki.bredos.org/\n"
+        f"{alt}{colors.bold}\n*{colors.endc} Documentation:  https://wiki.beryllium.gr/\n"
     )
     msg.append(
-        f"{alt}{colors.bold}*{colors.endc} Support:        https://discord.gg/beSUnWGVH2\n\n"
+        f"{alt}{colors.bold}*{colors.endc} Support:        https://discord.gg/Zzvzf4BBTG\n\n"
     )
 
     info_str = f"{colors.bland_t}System Info as of {datetime.now().strftime('%a %d/%b/%Y @ %H:%M:%S')}{colors.endc}\n"
@@ -1418,7 +1418,7 @@ async def main() -> None:
 
         if show_url:
             msg.append(
-                f"\n{colors.bold}For more information, visit:\n{colors.blue_t}https://wiki.bredos.org/how-to/disk-failure{colors.endc}\n\n"
+                f"\n{colors.bold}For more information, visit:\n{colors.blue_t}https://wiki.beryllium.sh/how-to/disk-failure{colors.endc}\n\n"
             )
 
     if not os.geteuid():

@@ -1,11 +1,11 @@
-.TH BREDOS-NEWS 1 "June 2025" "BredOS"
+.TH BERYLLIUM-NEWS 1 "June 2025" "Beryllium OS"
 .SH NAME
-bredos-news \- A news fetch utility that functions as a neofetch-style monitor and terminal greeter
+beryllium-news \- A news fetch utility that functions as a neofetch-style monitor and terminal greeter
 .SH SYNOPSIS
-.B bredos-news
+.B beryllium-news
 .RB [ \-s ]
 .SH DESCRIPTION
-\fBbredos-news\fR is a BredOS utility that shows user-facing system notifications such as software updates, disk attachments, and SMART health alerts. It is designed to be simple, silent when not needed, and optionally used as a terminal screensaver.
+\fBberyllium-news\fR is a Beryllium OS utility that shows user-facing system notifications such as software updates, disk attachments, and SMART health alerts. It is designed to be simple, silent when not needed, and optionally used as a terminal screensaver.
 
 By default, it runs in interactive mode and displays available news items unless explicitly hushed via config files.
 
@@ -19,7 +19,7 @@ The presence of specific hush files in the user's home directory suppresses cert
 
 .TP
 .I ~/.hush_news
-Suppresses all output. When present, \fBbredos-news\fR does nothing.
+Suppresses all output. When present, \fBberyllium-news\fR does nothing.
 
 .TP
 .I ~/.hush_updates
@@ -35,7 +35,7 @@ Suppresses reporting of SMART health problems.
 
 .SH CONFIGURATION
 .nf
-\fBbredos-news\fR now supports a Python-based config file at \fI~/.newsrc\fR.
+\fBberyllium-news\fR now supports a Python-based config file at \fI~/.newsrc\fR.
 Any valid Python code may be placed here to customize behavior.
 Some variables hold special meaning:
 .nf
@@ -65,4 +65,4 @@ Python script executed at startup. Variables defined here override defaults in t
 \fI~/.newsrc\fR
 
 .SH AUTHOR
-Bill Sideris <bill88t@bredos.org>
+Bill Sideris <bill88t@feline.gr>

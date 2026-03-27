@@ -318,7 +318,7 @@ def get_flatpak_updates():
 def fetch_news() -> str | bool:
     try:
         response = requests.get(
-            "https://raw.githubusercontent.com/BredOS/news/refs/heads/main/notice.txt",
+            "https://raw.githubusercontent.com/beryllium-org/news/refs/heads/main/notice.txt",
             timeout=5,
         )
         response.raise_for_status()
@@ -331,7 +331,7 @@ def fetch_upd_recommends() -> str:
     val = "Unknown"
     try:
         response = requests.get(
-            "https://raw.githubusercontent.com/BredOS/news/refs/heads/main/upd_recommends.toml",
+            "https://raw.githubusercontent.com/beryllium-org/news/refs/heads/main/upd_recommends.toml",
             timeout=5,
         )
         response.raise_for_status()

@@ -27,7 +27,7 @@ reset_timer() {
 trigger_news_update() {
     if [[ "$NEWS_SS_SHOULD_RUN" == 1 ]]; then
         NEWS_SS_SHOULD_RUN=0
-        bredos-news -s
+        beryllium-news -s
     fi
 }
 
