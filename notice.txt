@@ -1,11 +1,10 @@
 Well, welcome to Beryllium OS!
 
-If you haven't hopped on already:
-https://discord.gg/Zzvzf4BBTG
+You should remove BredOS repositories from `/etc/pacman.conf`.
 
-You may safely remove BredOS repositories from `/etc/pacman.conf`.
-More on what will be left behind from BredOS will soon be posted
-on the new wiki. Stay tuned!
+For automatic repo cleanup, even if you've already migrated,
+reinstall `beryllium-mirrorlist` or run
+`curl -fsSL https://repo.beryllium.gr/repo/mig.sh | sudo bash`
 
-As always, by your lovely host,
+If anything's wrong, lmk in our new discord. (link on top)
 - Rudimentary Pancake Assembler
