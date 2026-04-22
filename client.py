@@ -253,7 +253,7 @@ def shortcuts_help() -> None:
 
 shortcuts["1"] = "beryllium-config"
 shortcuts["0"] = "sudo sys-report"
-shortcuts["b"] = shortcuts["B"] = "[ '$USER' = 'bred' ] && Bakery --tui;"
+shortcuts["b"] = shortcuts["B"] = "[ '$USER' = 'beryl' ] && Bakery --tui;"
 shortcuts["?"] = shortcuts_help
 
 shortcuts_reload = ["1", "0", "?", "b", "B"]
@@ -1384,7 +1384,7 @@ async def main() -> None:
         if upd_str:
             msg.append(f"{upd_str}\n\n")
 
-    if os.getlogin() == "bred" and os.path.exists("/usr/bin/Bakery"):
+    if os.getlogin() == "beryl" and os.path.exists("/usr/bin/Bakery"):
         msg.append(f"{colors.yellow_t}Setup is {colors.bold}INCOMPLETE{colors.endc}!\n")
         msg.append(
             f"If you wish to complete it from the command line press B or run `{colors.bland_t}{colors.bold}Bakery --tui{colors.endc}`\n"
