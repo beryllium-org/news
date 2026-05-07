@@ -1,10 +1,11 @@
-Well, welcome to Beryllium OS!
+95% of the migration is complete, and all kernels have been patched against copy.fail
 
-You should remove BredOS repositories from `/etc/pacman.conf`.
+However there is just too much work. We need contributors in every part of the OS.
+If you've got free time, feel free to contact us in discord (link is on top) or by email,
+and we'll teach you everything you need get started.
 
-For automatic repo cleanup, even if you've already migrated,
-reinstall `beryllium-mirrorlist` or run
-`curl -fsSL https://repo.beryllium.gr/repo/mig.sh | sudo bash`
+If you've got an IP or DDNS and 30GB free, you can also become a mirror for Beryllium OS.
+<https://wiki.beryllium.gr/en/how-to/deploy-repository-mirror>
 
-If anything's wrong, lmk in our new discord. (link on top)
-- Rudimentary Pancake Assembler
+Once again, welcome to Beryllium OS!
+- Rudimentary Pancake Assembler (Bill Sideris) <bill88t@feline.gr>
