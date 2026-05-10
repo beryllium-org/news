@@ -1,5 +1,5 @@
 [aarch64]
-value = 1
+value = 0
 
 [x86_64]
 value = 0
