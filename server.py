@@ -49,6 +49,32 @@ MUTEX_LOCK = False
 _last_run_data = {}
 
 
+def tiocsti() -> None:
+    if not is_linux:
+        return
+
+    key = "dev.tty.legacy_tiocsti"
+    try:
+        current = subprocess.check_output(
+            ["sysctl", "-n", key], stderr=subprocess.DEVNULL, text=True
+        ).strip()
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return
+
+    if current == "1":
+        return
+
+    try:
+        subprocess.check_call(
+            ["sysctl", "-w", f"{key}=1"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        print("Enabled dev.tty.legacy_tiocsti.")
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        print("Failed to enable dev.tty.legacy_tiocsti.")
+
+
 def once_per_day(func):
     tag = func.__name__
 
@@ -547,6 +573,7 @@ def run_watcher():
 
 
 def main() -> None:
+    tiocsti()
     notifier = run_watcher()
     try:
         run_periodic()
