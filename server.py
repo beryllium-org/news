@@ -1,6 +1,6 @@
 #!/usr/bin/env -S python3 -u
 
-import os, re, json, time, glob, sys, io
+import os, re, json, time, glob, sys, io, shutil
 import socket, subprocess, requests
 import platform, ssl, pwd
 from datetime import datetime
@@ -220,6 +220,25 @@ def has_internet(timeout: float = 3.0) -> bool:
         return False
 
 
+def is_metered_connection() -> bool:
+    if not is_linux:
+        return False
+    try:
+        if not shutil.which("nmcli"):
+            return False
+        out = subprocess.check_output(
+            ["nmcli", "-t", "-f", "METERED", "general"],
+            stderr=subprocess.DEVNULL,
+            text=True,
+            timeout=2,
+        ).strip()
+        if "yes" in out.lower():
+            return True
+    except Exception:
+        pass
+    return False
+
+
 def run_command(cmd):
     for _ in range(MAX_RETRIES):
         try:
@@ -423,6 +442,17 @@ def check_and_update() -> bool:
     if not has_internet():
         MUTEX_LOCK = False
         return False
+    if is_linux and is_metered_connection():
+        print("Metered connection detected: skipping update checks.")
+        updates = "Metered"
+        devel = 0
+        flat = 0
+        news = fetch_news()
+        upd_recommends = fetch_upd_recommends()
+        smart = {}
+        write_cache(updates, devel, flat, news, upd_recommends, smart)
+        MUTEX_LOCK = False
+        return True
     print("Update check triggered")
     updates = get_updates()
     devel = get_devel_updates()

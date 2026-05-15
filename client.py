@@ -1334,50 +1334,55 @@ async def main() -> None:
             latest = "" if len(updates[5]) > 1 else updates[5][0]
             should = ""
             flat_str = ""
-            if updates[4] != "Unknown":
-                should = f"{colors.accent}Should you update:{colors.endc} {updates[4]}"
-            if updates[2]:
-                if updates[2] == 1:
-                    flat_str += f"{colors.cyan_t}A flatpak package update is available.{colors.endc}"
-                else:
-                    flat_str += f"{colors.cyan_t}{updates[2]} flatpak package updates available.{colors.endc}"
+            if updates[0] == "Metered":
+                upd_str = f"\n{colors.bold}{colors.yellow_t}Update check skipped due to metered connection.{colors.endc}"
+            else:
+                if updates[4] != "Unknown":
+                    should = (
+                        f"{colors.accent}Should you update:{colors.endc} {updates[4]}"
+                    )
+                if updates[2]:
+                    if updates[2] == 1:
+                        flat_str += f"{colors.cyan_t}A flatpak package update is available.{colors.endc}"
+                    else:
+                        flat_str += f"{colors.cyan_t}{updates[2]} flatpak package updates available.{colors.endc}"
 
-            if updates[0] and not updates[1]:
-                if updates[0] == 1:
-                    upd_str += f"{colors.bold}{colors.cyan_t}A package update is available.{colors.endc}"
-                else:
-                    upd_str += f"{colors.bold}{colors.cyan_t}{updates[0]} package updates available.{colors.endc}"
-                upd_str += f" {latest}"
-                if flat_str:
-                    upd_str += f"\n{flat_str}"
-                upd_str += f"\n{should}"
-            elif updates[0] and updates[1]:
-                if updates[1] == 1:
-                    upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which one is a development package.{colors.endc}"
-                else:
-                    upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which {updates[1]} are development packages.{colors.endc}"
-                if flat_str:
-                    upd_str += f"\n{flat_str}"
+                if updates[0] and not updates[1]:
+                    if updates[0] == 1:
+                        upd_str += f"{colors.bold}{colors.cyan_t}A package update is available.{colors.endc}"
+                    else:
+                        upd_str += f"{colors.bold}{colors.cyan_t}{updates[0]} package updates available.{colors.endc}"
                     upd_str += f" {latest}"
+                    if flat_str:
+                        upd_str += f"\n{flat_str}"
+                    upd_str += f"\n{should}"
+                elif updates[0] and updates[1]:
+                    if updates[1] == 1:
+                        upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which one is a development package.{colors.endc}"
+                    else:
+                        upd_str += f"{colors.bold}{colors.cyan_t}{updates[0] + updates[1]} package updates available, of which {updates[1]} are development packages.{colors.endc}"
+                    if flat_str:
+                        upd_str += f"\n{flat_str}"
+                        upd_str += f" {latest}"
+                        upd_str += f"\n{should}"
+                    else:
+                        upd_str += f"\n{should} {latest}"
+                elif updates[1]:
+                    if updates[1] == 1:
+                        upd_str += f"{colors.bold}{colors.cyan_t}A development package update is available.{colors.endc}"
+                    else:
+                        upd_str += f"{colors.bold}{colors.cyan_t}{updates[1]} development package updates are available.{colors.endc}"
+                    upd_str += f" {latest}"
+                    if flat_str:
+                        upd_str += f"\n{flat_str}"
                     upd_str += f"\n{should}"
                 else:
-                    upd_str += f"\n{should} {latest}"
-            elif updates[1]:
-                if updates[1] == 1:
-                    upd_str += f"{colors.bold}{colors.cyan_t}A development package update is available.{colors.endc}"
-                else:
-                    upd_str += f"{colors.bold}{colors.cyan_t}{updates[1]} development package updates are available.{colors.endc}"
-                upd_str += f" {latest}"
-                if flat_str:
-                    upd_str += f"\n{flat_str}"
-                upd_str += f"\n{should}"
-            else:
-                if flat_str:
-                    upd_str += flat_str
-                    upd_str += f" {latest}"
-                else:
-                    upd_str += f"{colors.accent2 if colors.accent2 != colors.yellow_t else colors.green_t}You are up to date!{colors.endc}"
-                    upd_str += f" {latest}"
+                    if flat_str:
+                        upd_str += flat_str
+                        upd_str += f" {latest}"
+                    else:
+                        upd_str += f"{colors.accent2 if colors.accent2 != colors.yellow_t else colors.green_t}You are up to date!{colors.endc}"
+                        upd_str += f" {latest}"
         elif isinstance(updates, str):
             upd_str = updates
 
