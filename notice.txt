@@ -1,11 +1,13 @@
-95% of the migration is complete, and all kernels have been patched against copy.fail
-
-However there is just too much work. We need contributors in every part of the OS.
+Work is underway for the mainline kernel, UEFI builds and RPI ports.
+However there is too much to be done. We need contributors in every part of the OS.
 If you've got free time, feel free to contact us in discord (link is on top) or by email,
 and we'll teach you everything you need get started.
+
+If you happen to still need the migration script:
+`curl -fsSL https://repo.beryllium.gr/repo/mig.sh | sudo bash`
 
 If you've got an IP or DDNS and 30GB free, you can also become a mirror for Beryllium OS.
 <https://wiki.beryllium.gr/en/how-to/deploy-repository-mirror>
 
 Once again, welcome to Beryllium OS!
-- Rudimentary Pancake Assembler (Bill Sideris) <bill88t@feline.gr>
+- Precompiled Pancake Shader (Bill Sideris) <bill88t@feline.gr>

@@ -152,7 +152,7 @@ try:
     try:
         with open(path, "r") as f:
             ts = int(f.read().strip())
-        if time() - ts <= 2 and not forced:
+        if time() - ts <= 5 and not forced:
             exit(0)
     except (FileNotFoundError, ValueError):
         pass
