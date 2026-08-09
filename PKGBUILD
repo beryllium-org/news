@@ -1,7 +1,7 @@
 # Maintainer: Bill Sideris <bill88t@feline.gr>
 
 pkgname=beryllium-news
-pkgver=1.28.1
+pkgver=1.29.0
 pkgrel=1
 pkgdesc='Beryllium OS news and system information utility'
 arch=('any')
@@ -43,7 +43,7 @@ source=(
 )
 
 sha256sums=('1bc752c3e5d6eab512e2924becb1735cc215161d76b8443c3388708348ceaa36'
-            '8d2d9c15b9c982a8f2d7e1f314ebea41aefbac445107a428dedcdc071d7be474'
+            '6d0796093940f761c61d62c58dc2cc7ef5ed2daef436d386c830c3a4996f92d8'
             '9d08f7f5dd0e1986fa1d87761ce73d802d2964238f8dfbd103ea78d511a3e6ac'
             'ca4a741e2f21ce9703783db15752638acd73a6d6be496a694461c70b53388b88'
             '820ab72d1eac2aebf6a46c3128062860b9092d107ee645cf10c82233ddd0257b')

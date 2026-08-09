@@ -239,6 +239,32 @@ def is_metered_connection() -> bool:
     return False
 
 
+def is_gaming() -> bool:
+    try:
+        raw_output = subprocess.run(
+            ["who"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True
+        ).stdout
+
+        usernames = {
+            line.split()[0] for line in raw_output.splitlines() if line.split()
+        }
+
+        for user in usernames:
+            result = subprocess.run(
+                ["sudo", "-u", user, "gamemodelist"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.DEVNULL,
+                text=True,
+                check=False,
+            )
+            if result.stdout.strip():
+                return True
+
+        return False
+    except Exception:
+        return False
+
+
 def run_command(cmd):
     for _ in range(MAX_RETRIES):
         try:
@@ -453,6 +479,10 @@ def check_and_update() -> bool:
         write_cache(updates, devel, flat, news, upd_recommends, smart)
         MUTEX_LOCK = False
         return True
+    elif is_linux and is_gaming():
+        print("Gamemode active: Defferring update checks.")
+        MUTEX_LOCK = False
+        return False
     print("Update check triggered")
     updates = get_updates()
     devel = get_devel_updates()
