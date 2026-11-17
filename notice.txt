@@ -1,4 +1,5 @@
-Work is underway for bringing in native Steam, RPI3 & 5, Mediatek and a733 ports.
+Steam & Linux 7.3 are here with greatly improved device support, and security fixes!
+Work is still underway for bringing in RPI3 & 5, Mediatek and a733 ports.
 If you have a RPI3 or 5 and a serial adapter, please let us know, as we need testing.
 If you've got free time or want to help with development, feel free to contact us
 in discord (link is on top) or by email, and we'll help you everything you need get started.
